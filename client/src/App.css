@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    color: white;
+}
+
+body {
+    position: relative;
+    display: grid;
+    background-color: #333;
+}
+
+h1 {
+    margin: 2rem 1rem 3rem 1rem;
+    font-size: 4rem;
+}
+
+h2 {
+    margin: 1rem 1rem 2rem 1rem;
+    font-size: 3rem;
+}
+
+h3 {
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+    padding: .6rem 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: lightblue;
+    font-size: 1.8rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.button {
+    background-color: lightblue;
+    color: black;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 1.5rem 1.5rem;
+    max-width: 60%;
+    width: 10rem;
+    text-align: center;
+    border: .3rem solid #000;
+    transition: all .3s ;
+    cursor: pointer;
+}
+
+.button:hover, .button:focus, .button:focus-visible {
+    text-decoration: none;
+    background-color: rgb(39, 120, 212);
+    color: white;
+    box-shadow: 0 0 0 3px #333, 0 0 0 5px black;
+    transition: all .3s;
+}
+
+form input {
+    position: relative;
+    background-image: none;
+    margin: .5rem;
+    padding-left: 1rem;
+    font-size: 1.8rem;
+    text-align: left;
+    color: black;
+    border-radius: 5px;
+    border: .5rem solid #333;
+    border-radius: 1rem;
+    background-color: #ddd;
+    line-height: 1.8rem;
+    height: 4rem;
+    min-width: 40rem;
+    transition: all .3s;
+}
+
+form input:hover, form input:focus, form input:focus-visible {
+    border: .5rem solid black;
+    background-color: white;
+    transition: all .3s;
+}
+
+form label {
+    margin: .8rem .8rem 0 1rem;
+    font-size: 1.8rem;
+    opacity: 0;
+    transition: all .3s;
+}
+
+form label:has(+ input:not(:placeholder-shown)) {
+    opacity: 1;
+    transition: all .3s;
+}
+
+div.error-messages {
+    display: grid;
+}
+
+p.error {
+    background: firebrick;
+    color: white;
+    text-align: center;
+    padding: .4rem;
+    margin: .2rem;
+    border-radius: 1rem;
+}

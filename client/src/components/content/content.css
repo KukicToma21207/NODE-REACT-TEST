@@ -1,0 +1,13 @@
+.content-container {
+    display: grid;
+    place-content: center;
+    padding: 3rem 2rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-size: 1.8rem;
+}

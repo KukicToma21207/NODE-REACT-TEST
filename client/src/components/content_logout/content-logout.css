@@ -1,0 +1,19 @@
+.content-logout-container {
+    display: grid;
+    place-content: center;
+    margin-top: 5rem;
+}
+
+.content-logout-container form{
+    display: grid;
+}
+
+.content-logout-container form .button {
+    margin: 3rem 1rem;
+    width: auto;
+    max-width: 100%;
+}
+
+.content-logout-container form .form-field {
+    display: grid;
+}

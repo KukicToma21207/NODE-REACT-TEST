@@ -1,0 +1,20 @@
+.header {
+    background-color: #555;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.header h1 {
+    margin: 0;
+    color: white;
+    transition: all .3s;
+}
+
+.header a:hover {
+    text-decoration: none;
+}
+
+.header a:hover > h1 {
+    color: lightblue;
+    transition: all .3s;
+}

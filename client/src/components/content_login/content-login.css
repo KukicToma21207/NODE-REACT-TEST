@@ -1,0 +1,19 @@
+.content-login-container {
+    display: grid;
+    place-content: center;
+    margin-top: 5rem;
+}
+
+.content-login-container form{
+    display: grid;
+}
+
+.content-login-container form .button {
+    margin: 3rem 1rem;
+    width: auto;
+    max-width: 100%;
+}
+
+.content-login-container form .form-field {
+    display: grid;
+}

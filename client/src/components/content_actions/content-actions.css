@@ -1,0 +1,9 @@
+.content-actions-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    justify-items: center;
+    width: 100%;
+    padding: 5rem 0;
+}
+
