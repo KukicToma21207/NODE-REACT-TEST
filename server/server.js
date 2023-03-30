@@ -8,13 +8,29 @@ var salt = bcrypt.genSaltSync(10)
 require('./models/userModel')
 
 const app = express()
+
+/**
+ * Corse middleware for communication with different URL
+ */
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true,
 }))
+
+/**
+ * Middleware for parsing json body content
+ */
 app.use(express.json())
 
-const mDB_URI = "mongodb+srv://kukictoma21207:AaFVmPLxJFweVduI@testingappcluster.ddbxrkf.mongodb.net/?retryWrites=true&w=majority"
+/**
+ * To do:
+ * Please provide valid MongoDB connection link, or let me know your IP address so I can whitelisted that address and you can login to y DB
+ */
+const mDB_URI = ""
+
+/**
+ * Connecting to the DB server
+ */
 async function connectDB ()
 {
     try {
@@ -28,6 +44,9 @@ connectDB()
 
 const CurrentUser = mongoose.model('User')
 
+/**
+ * Setup session to be able to login users
+ */
 app.use(session({
     name: "TEST_APP_SESSION",
     secret: "something to sign a session",
@@ -40,6 +59,9 @@ app.use(session({
     },
 }))
 
+/**
+ * Logout route
+ */
 app.get('/logout', (req, res) =>
 {
     req.session.destroy((err) =>
@@ -53,6 +75,9 @@ app.get('/logout', (req, res) =>
     })
 })
 
+/**
+ * Home route
+ */
 app.get('/', async (req, res) =>
 {
     if (req.session.usr && req.session.usr != '') {
@@ -71,6 +96,9 @@ app.get('/', async (req, res) =>
     }
 })
 
+/**
+ * Login route
+ */
 app.post('/login', [
     check('email')
         .not().isEmpty().withMessage('Email can\'t be empty').bail()
@@ -109,6 +137,9 @@ app.post('/login', [
     }
 })
 
+/**
+ * Register route
+ */
 app.post('/register', [
     check('first_name')
         .trim().escape()
@@ -129,7 +160,7 @@ app.post('/register', [
         .custom((value, {req}) => (value === req.body.password)).withMessage('Confirm Password and Password do not match')
 ], async (req, res) =>
 {
-    const {first_name, last_name, email, password, confirm_password} = req.body
+    const {first_name, last_name, email, password} = req.body
 
     let checkResult = validationResult(req)
 
@@ -168,7 +199,10 @@ app.post('/register', [
     }
 })
 
+/**
+ * Start server application
+ */
 app.listen(5000, () =>
 {
-    console.log("Server started on port 5000")
+    console.log("Server started on http://localhost:5000")
 })

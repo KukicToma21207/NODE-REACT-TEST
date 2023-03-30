@@ -1,5 +1,7 @@
 import { FormEvent, useState } from "react";
 import { Link, redirect } from "react-router-dom";
+import {ContentProps} from "../content/Content"
+import ContentActions from "../content_actions/ContentActions"
 import "./content-register.css";
 
 
@@ -11,7 +13,8 @@ interface FormProps {
     confirm_password: string
 }
 
-const ContentRegister = () => {
+// Main register component
+const ContentRegister = ({user}: ContentProps) => {
 	const [
 		registerForm,
 		setValue,
@@ -66,6 +69,8 @@ const ContentRegister = () => {
                 )}
             </div>
 
+            {(!user || (user && !user.first_name) || (user && user.first_name === '')) &&
+            <>
 			<form onSubmit={onSubmit} noValidate>
 				<div className='form-field'>
 					<label htmlFor='first_name'>First Name *</label>
@@ -130,6 +135,18 @@ const ContentRegister = () => {
 			<p>
 				Already registered? Login <Link to={"/login"}>here</Link>.
 			</p>
+            </>
+            }
+
+            {(user && user.first_name) && 
+                <>
+                <h3>You are already logged in as {user.first_name} {user.last_name}</h3>
+                <ContentActions user={user}>
+                    <Link className='button' to={'/'}>Home</Link>
+                </ContentActions>
+                </>
+            }
+            
 		</div>
 	);
 };

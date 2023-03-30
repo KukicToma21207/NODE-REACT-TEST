@@ -1,11 +1,14 @@
+import {ReactNode} from "react"
 import { Link } from "react-router-dom";
 import "./content-actions.css";
 
-type ContentActionProps = {
-	user?: { first_name: string } | null;
+export type ContentActionProps = {
+	user?: { first_name: string, last_name: string } | null;
+    children?: ReactNode
 };
 
-const ContentActions = ({ user }: ContentActionProps) => {
+// Button set for content components
+const ContentActions = ({user, children}: ContentActionProps) => {
 	return (
 		<div className='content-actions-container'>
 			{!user && <h3>Loading</h3>}
@@ -22,9 +25,12 @@ const ContentActions = ({ user }: ContentActionProps) => {
 			)}
 
 			{user && user.first_name && (
-				<Link className='button' to={"/logout"}>
-					Logout
-				</Link>
+                <>
+                    {children}
+                    <Link className='button' to={"/logout"}>
+                        Logout
+                    </Link>
+                </>
 			)}
 		</div>
 	);

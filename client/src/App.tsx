@@ -35,8 +35,8 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<Content user={user}></Content>} />
-                    <Route path='/login' element={<ContentLogin></ContentLogin>} />
-                    <Route path='/register' element={<ContentRegister></ContentRegister>} />
+                    <Route path='/login' element={<ContentLogin user={user}></ContentLogin>} />
+                    <Route path='/register' element={<ContentRegister user={user}></ContentRegister>} />
                     <Route path='/logout' element={<ContentLogout></ContentLogout>}/>
 				</Routes>
 			</BrowserRouter>
